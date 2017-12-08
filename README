@@ -1,0 +1,7 @@
+# golang 开发环境
+1、修改docker-entrypoint.sh, 在sshd命令前添加需要运行的命令，已给出示例
+2、确定golang运行的端口以后，修改或添加 EXPOSE 端口 
+3、修改docker-compose.yml的ports配置，匹配Dockerfile文件
+4、登陆容器命令：docker exec -it golang bash 或 ssh localhost -p 2222 并输入密码123456
+5、停止容器:进入golang目录，docker-compose down  启动容器：docker-compose up -d 
+7、重构容器:docker-compose down && docker-compose up -d --build (只要修改了Dockerfile就需要重构)

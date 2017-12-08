@@ -1,0 +1,15 @@
+version: "2"
+services:
+  golang:
+    # buld后面是目录，根据指定目录下的Dockerfile 构建，构建后的镜像可以用 docker images查看，命名为目录名_service名字的形式
+    build: .
+    hostname: golang
+    container_name: golang
+    # 挂载的磁盘，把宿主机挂载到容器里面
+    volumes:
+      - /root/work:/root/work
+    # 工作目录，通过docker exec -it golang bash 进入时的默认目录
+    working_dir: /root/work
+    ports:
+      - "2222:22"
+      - "801:801"
